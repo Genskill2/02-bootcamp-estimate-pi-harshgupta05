@@ -11,16 +11,15 @@ def wallis(size):
     return pi
     
 def monte_carlo(size):
-    flag=0
-    for i in range(1,size+1):
-        startx=random.random()
-        starty=random.random()
-        carlo = startx*startx+starty*starty
-        if(carlo<=1):
-            flag=flag+1
-        result = 4*flag/size     
-    return result
-
+    flag = 0
+    for i in range(size):
+        startx = random.random()
+        starty = random.random()
+        carlo = startx ** 2 + starty ** 2
+        if (math.sqrt(carlo) <= 1):
+            flag = flag+1
+    result = (flag/size)
+    return (4*result)
 
 class TestWallis(unittest.TestCase):
     def test_low_iters(self):
